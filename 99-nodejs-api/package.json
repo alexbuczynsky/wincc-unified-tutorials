@@ -1,0 +1,12 @@
+{
+  "name": "soaxclient-node-js",
+  "version": "0.0.0",
+  "description": "SOAXClientNodeJs",
+  "author": {
+    "name": "siemens"
+  },
+  "dependencies": {
+    "ws": "^5.2.0",
+    "iconv": "2.3.2"
+  }
+}
