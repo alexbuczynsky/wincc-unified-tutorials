@@ -1,0 +1,7 @@
+{
+    "host": "smtp.gmail.com",
+    "port": 465,
+    "secure": true,
+    "requireTLS": true,
+    "auth": {"user": "YOUR_USERNAME@gmail.com", "pass": "YOUR_(DEVICE)_PASSWORD" }
+}
