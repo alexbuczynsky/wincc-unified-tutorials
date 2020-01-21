@@ -13,7 +13,7 @@ import WidgetCardContent from '../WidgetCardContent';
 import BreakerStatusList from '../BreakerStatusList';
 import { useInterval } from '../../hooks';
 import BreakerStatusOneLine from '../BreakerStatusOneLine';
-import { DataSet } from '../../wincc-api';
+import { DataSet, Tags } from '../../wincc-api';
 
 // -------------------------------------------------------------------------
 // STYLES
@@ -42,7 +42,9 @@ const BreakerStatusWidget: React.FC<Props> = props => {
 
   const breakerId = props.id;
 
-  const title = "Breaker " + breakerId;
+  const nameplate = Tags("nameplateWL[" + breakerId + "]")
+
+  const title = nameplate.Value;
   const subheader = 'Breaker Status';
 
 
@@ -66,7 +68,7 @@ const BreakerStatusWidget: React.FC<Props> = props => {
     <WidgetCard>
       <WidgetCardHeader title={title} subheader={subheader} />
       <WidgetCardContent>
-        <Typography> BreakerStatusWidget Works!</Typography>
+        <Typography></Typography>
         <BreakerStatusOneLine
           bayBlocked={breakerStatus.getValue('bayBlocked')}
           commFailure={breakerStatus.getValue('comFailure')}
