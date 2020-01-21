@@ -20,8 +20,9 @@ import { isNumber } from 'util';
 // -------------------------------------------------------------------------
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    width: '100%'
+  MyContainer: {
+    width: '100%',
+    marginTop: '35px',
   }
 }));
 
@@ -49,7 +50,7 @@ export const UserDashboard: React.FC<Props> = props => {
 
 
   return (
-    <Container maxWidth='xl' className={classes.root}>
+    <Container maxWidth='xl' className={classes.MyContainer}>
 
       <Grid container spacing={2}>
 
