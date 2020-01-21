@@ -42,9 +42,9 @@ export const TagSet = (...tagNames: ReadonlyArray<string>): HMITagSet => {
 
   const [record, setRecord] = useState(new HMITagSet(...tagNames))
 
-  const fetchAll = useCallback(() => {
+  const fetchAll = () => {
     setRecord(record.Clone())
-  }, [tagNames])
+  }
 
   record.postReadCb = fetchAll
 
@@ -70,9 +70,9 @@ export function DataSet<T extends DataSetNames>(dataSetName: T, ...args: Paramet
   // const allArgs = args;
   const [record, setRecord] = useState<ReturnType<DataSetClasses[T]>>(dataSetClass(...args))
 
-  const fetchAll = useCallback(() => {
+  const fetchAll = () => {
     setRecord(record.Clone())
-  }, [dataSetName])
+  }
 
   record.postReadCb = fetchAll
 
