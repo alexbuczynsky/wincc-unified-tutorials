@@ -29,7 +29,30 @@ export type Tag = {
   ErrorDescription: string
 };
 
-export interface IHMITag extends Tag {
-  hasLoaded: boolean;
-  Read: () => Promise<void>
+
+type WidgetTypes = 'BreakerStatus';
+
+export interface IWidgetConfig {
+  type: WidgetTypes;
+  meta: {
+    id?: number;
+  }
 }
+
+export interface IDashboardConfig {
+  widgets: IWidgetConfig[];
+}
+
+export interface IUserConfig {
+  username: string;
+  dashboard: IDashboardConfig;
+}
+
+
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends Array<infer U>
+  ? Array<DeepPartial<U>>
+  : T[P] extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : DeepPartial<T[P]>
+};

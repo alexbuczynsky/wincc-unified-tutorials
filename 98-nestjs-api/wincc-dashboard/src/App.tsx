@@ -3,20 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 import { ThemeProvider, makeStyles } from '@smartgear/edison';
-import { SmartgearIcons } from '@smartgear/icons';
 import {
   CssBaseline,
   Card,
-  CardActions,
-  Button,
   CardContent,
-  Typography,
-  CardHeader,
-  Avatar,
 } from '@material-ui/core';
 
-import { Tags } from './wincc-api';
-import { useInterval } from './hooks';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
+import { UserDashboard } from './Screens/UserDashboard';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(10),
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '800px',
+    maxWidth: '1400px',
     maxHeight: '800px',
   },
 }));
@@ -36,43 +35,15 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme="Siemens (Light)">
       <CssBaseline />
-      <TagTest id={0} />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/user/:userName/dashboard">
+            <UserDashboard />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
-}
-
-
-
-const TagTest = ({ id = 0 }) => {
-
-  const dasStatusTag = Tags(`breakerStatus_breakerWL[${id}].dasStatus`)
-  const statusOpenTag = Tags(`breakerStatus_breakerWL[${id}].statusOpen`)
-  const statusClosedTag = Tags(`breakerStatus_breakerWL[${id}].statusClosed`)
-
-  useInterval(() => {
-    dasStatusTag.Read()
-    statusOpenTag.Read()
-    statusClosedTag.Read()
-  }, 500)
-
-  const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <Card>
-        <CardContent>
-          <Typography variant='body1'>
-            <b>{dasStatusTag.Name}</b> = {dasStatusTag.Value} ({dasStatusTag.TimeStamp})
-          </Typography>
-          <Typography variant='body1'>
-            <b>{statusOpenTag.Name}</b> = {statusOpenTag.Value} ({statusOpenTag.TimeStamp})
-          </Typography>
-          <Typography variant='body1'>
-            <b>{statusClosedTag.Name}</b> = {statusClosedTag.Value} ({statusClosedTag.TimeStamp})
-          </Typography>
-        </CardContent>
-      </Card>
-    </div>
-  )
 }
 
 export default App;

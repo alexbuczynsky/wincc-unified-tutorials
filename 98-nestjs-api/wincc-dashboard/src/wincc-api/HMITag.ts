@@ -1,6 +1,7 @@
-import { IHMITag, Tag } from "./interfaces";
+import { Tag } from "./interfaces";
+import moment from 'moment';
 
-export class HMITag implements IHMITag {
+export class HMITag implements Tag {
 
   public static Clone(tag: HMITag): HMITag {
     const newTag = new HMITag(tag.Name);
@@ -10,6 +11,7 @@ export class HMITag implements IHMITag {
     newTag.Error = tag.Error;
     newTag.ErrorDescription = tag.ErrorDescription;
     newTag.hasLoaded = tag.hasLoaded;
+    newTag.Read = tag.Read;
     return newTag;
   }
 
@@ -30,12 +32,17 @@ export class HMITag implements IHMITag {
     this.hasLoaded = true;
   };
 
-  public update(tag: Tag) {
+  public update(tag: Partial<Tag>) {
     Object.assign(this, tag)
+    return this;
   }
 
   public clone() {
     return HMITag.Clone(this);
+  }
+
+  public get Date() {
+    return moment.utc(this.TimeStamp, 'YYYY-MM-DD HH:mm:ss.SSSSSSS')
   }
 
 
