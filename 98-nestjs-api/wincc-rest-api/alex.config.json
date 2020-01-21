@@ -1,0 +1,55 @@
+{
+    "username": "alex",
+    "dashboard": {
+        "widgets": [
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 0
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 1
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 2
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 3
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 4
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 4 
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 4 
+                }
+            },
+            {
+                "type": "BreakerStatus",
+                "meta": {
+                    "id": 4 
+                }
+            }
+        ]
+    }
+}
