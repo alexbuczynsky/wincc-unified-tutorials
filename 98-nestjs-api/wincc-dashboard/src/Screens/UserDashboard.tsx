@@ -47,8 +47,6 @@ export const UserDashboard: React.FC<Props> = props => {
 
   const [config, readConfig, saveConfig] = UserConfig(userName);
 
-  console.log({ config })
-
 
   return (
     <Container maxWidth='xl' className={classes.root}>

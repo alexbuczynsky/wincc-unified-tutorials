@@ -113,9 +113,8 @@ export class HMITagSet {
       this.Update(tag.Name, tag);
     }
 
-    console.log({ postReadCb: this.postReadCb })
-
     if (this.postReadCb) {
+      console.log({ postReadCb: this.postReadCb })
       this.postReadCb()
     }
   }

@@ -48,10 +48,8 @@ const BreakerStatusWidget: React.FC<Props> = props => {
 
 
   const breakerStatus = DataSet('BreakerStatus', breakerId);
-  console.log({ breakerStatus })
 
   useInterval(() => {
-    console.log('reading')
     breakerStatus.Read();
   }, 1000)
 
@@ -63,7 +61,6 @@ const BreakerStatusWidget: React.FC<Props> = props => {
   }
 
   const [tag] = breakerStatus.getTag('baxNeutral')
-  console.log(tag)
 
   return (
     <WidgetCard>

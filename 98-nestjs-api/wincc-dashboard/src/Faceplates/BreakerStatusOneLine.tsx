@@ -49,8 +49,6 @@ export type Props = {
 const BreakerStatusOneLine: React.FC<Props> = props => {
   const classes = useStyles();
 
-  console.log(props)
-
   let image = BreakerSplineSVG;
 
   if (props.bayBlocked) {
