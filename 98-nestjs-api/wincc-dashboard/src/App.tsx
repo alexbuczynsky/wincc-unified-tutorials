@@ -16,6 +16,7 @@ import {
   Link,
 } from "react-router-dom";
 import { UserDashboard } from './Screens/UserDashboard';
+import SingleWidgetScreen from './Screens/SingleWidgetScreen';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,8 +38,13 @@ const App: React.FC = () => {
       <CssBaseline />
       <BrowserRouter>
         <Switch>
+
           <Route path="/user/:userName/dashboard">
             <UserDashboard />
+          </Route>
+
+          <Route path="/user/:userName/widget/:widgetType">
+            <SingleWidgetScreen />
           </Route>
         </Switch>
       </BrowserRouter>
