@@ -63,18 +63,25 @@ export class RuntimeClass {
       console.log(err);
 
       if (err.message.includes('has been ended by the other party')) {
-        console.log('WINCC RUN TIME RESTARTED... EXITING WITH CODE ' + EXIT_CODES.WINCC_BANNED_ME);
-        process.exit(EXIT_CODES.WINCC_BANNED_ME);
+        this.restartApp();
       }
     });
 
     this.onSocketTimeout.subscribe(() => this.reconnect());
 
     this.onSocketConnect.subscribe(() => console.log('=====>>>>> CONNECTED'));
-    this.onSocketEnd.subscribe(() => console.log('=====>>>>> END'));
+    this.onSocketEnd.subscribe(() => {
+      console.log('=====>>>>> END');
+      this.restartApp();
+    });
     this.onSocketError.subscribe(console.log);
 
     this.writeLineQueue.subscribe((line) => this.socket.write(line));
+  }
+
+  private restartApp() {
+    console.log('WINCC RUN TIME RESTARTED... EXITING WITH CODE ' + EXIT_CODES.WINCC_BANNED_ME);
+    process.exit(EXIT_CODES.WINCC_BANNED_ME);
   }
 
   private reconnect() {
