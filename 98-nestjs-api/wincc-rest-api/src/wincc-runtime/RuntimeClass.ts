@@ -6,6 +6,7 @@ import { DelayQueue } from 'rx-queue';
 import * as uuid from 'uuid/v4';
 import { RuntimeCallbackQue, RuntimeCallback } from './RuntimeCallbackQue';
 import * as os from 'os';
+import { EXIT_CODES } from 'src/exit-codes';
 
 function get_pipe_name() {
   if (os.platform() === 'win32') {
@@ -60,7 +61,11 @@ export class RuntimeClass {
       throttle(event => interval(1000)),
     ).subscribe((err) => {
       console.log(err);
-      this.reconnect();
+
+      if (err.message.includes('has been ended by the other party')) {
+        console.log('WINCC RUN TIME RESTARTED... EXITING WITH CODE ' + EXIT_CODES.WINCC_BANNED_ME);
+        process.exit(EXIT_CODES.WINCC_BANNED_ME);
+      }
     });
 
     this.onSocketTimeout.subscribe(() => this.reconnect());
