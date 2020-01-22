@@ -1,0 +1,72 @@
+{
+  // Place your smartgear-mindsphere-app workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "Insert Code Block Comment": {
+    "prefix": "insertBlockComment",
+    "body": [
+      "// -------------------------------------------------------------------------",
+      "// ${name}",
+      "// -------------------------------------------------------------------------"
+    ],
+    "description": "Inserts code block comment"
+  },
+  "Custom React Boiler Plate": {
+    "prefix": "_newComponent,_createNewComponent",
+    "body": [
+      "// -------------------------------------------------------------------------",
+      "// IMPORTS",
+      "// -------------------------------------------------------------------------",
+      "",
+      "// Import React",
+      "import React from 'react';",
+      "// Material UI Imports",
+      "import { makeStyles } from '@smartgear/edison';",
+      "import { Typography } from '@material-ui/core';",
+      "",
+      "// -------------------------------------------------------------------------",
+      "// STYLES",
+      "// -------------------------------------------------------------------------",
+      "",
+      "const useStyles = makeStyles(theme => ({",
+      "  root: {",
+      "    maxWidth: '100%'",
+      "  }",
+      "}));",
+      "",
+      "// -------------------------------------------------------------------------",
+      "// OPTIONS",
+      "// -------------------------------------------------------------------------",
+      "",
+      "export type Props = {};",
+      "",
+      "// -------------------------------------------------------------------------",
+      "// MAIN COMPONENT",
+      "// -------------------------------------------------------------------------",
+      "",
+      "const ${MyComponent}: React.FC<Props> = props => {",
+      "  const classes = useStyles();",
+      "  return (",
+      "    <div className={classes.root}>",
+      "      <Typography>${MyComponent} works!</Typography>",
+      "    </div>",
+      "  );",
+      "};"
+      "export default ${MyComponent};",
+    ],
+    "scope": "typescriptreact,javascriptreact"
+  }
+}
