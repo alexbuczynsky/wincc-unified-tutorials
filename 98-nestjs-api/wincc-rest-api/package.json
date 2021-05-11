@@ -26,7 +26,7 @@
     "@nestjs/swagger": "^4.1.14",
     "cache-manager": "^2.10.1",
     "iconv": "^2.3.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "moment": "^2.24.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
