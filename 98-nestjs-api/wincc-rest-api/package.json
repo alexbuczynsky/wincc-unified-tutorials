@@ -27,7 +27,7 @@
     "cache-manager": "^2.10.1",
     "iconv": "^2.3.5",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "rx-queue": "^0.8.5",
