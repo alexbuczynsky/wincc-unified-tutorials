@@ -22,7 +22,7 @@
   "dependencies": {
     "@nestjs/common": "^6.7.2",
     "@nestjs/core": "^6.7.2",
-    "@nestjs/platform-express": "^6.7.2",
+    "@nestjs/platform-express": "^9.2.1",
     "@nestjs/swagger": "^4.1.14",
     "cache-manager": "^2.10.1",
     "iconv": "^2.3.5",
